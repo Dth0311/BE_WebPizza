@@ -22,6 +22,9 @@ public class Food {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "is_freeship")
+    private boolean isFreeship;
+
     @Column(name = "time_ship")
     private String timeShip;
 

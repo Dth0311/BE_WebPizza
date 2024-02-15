@@ -19,6 +19,7 @@ import javax.crypto.SecretKey;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/login")
 public class LoginController {

@@ -42,7 +42,7 @@ public class CustomFilterSecurity {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/login/**","/restaurant/files/**")
+                .requestMatchers("/login/**","/restaurant/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
