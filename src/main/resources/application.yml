@@ -20,4 +20,4 @@ jwt:
   privateKey: 2Lg5npGxc/yIFoHA/E/iQnjAt3f1dqOcsmfeL0pANG4=
 
 fileUpload:
-  rootPath: E:\TuHoc\BaiTap_JavaSpringBoot\WebPizza\upload
+  rootPath: E:\TuHoc\BaiTap_JavaSpringBoot\BE_WebPizza\upload
