@@ -74,6 +74,7 @@ public class RestaurantService implements IRestaurantService {
         List<RestaurantDTO> restaurantDTOList = new ArrayList<>();
         for (Restaurant item : listRestaurants) {
             RestaurantDTO restaurantDTO = new RestaurantDTO();
+            restaurantDTO.setId(item.getId());
             restaurantDTO.setImage(item.getImage());
             restaurantDTO.setTitle(item.getTitle());
             restaurantDTO.setSubTitle(item.getSubTitle());
@@ -93,6 +94,7 @@ public class RestaurantService implements IRestaurantService {
             List<MenuRestaurant> menuRestaurantList = menuRestaurantRepository.findAll();
             Restaurant data = restaurant.get();
             restaurantDTO.setTitle(data.getTitle());
+            restaurantDTO.setDescription(data.getDescription());
             restaurantDTO.setImage(data.getImage());
             restaurantDTO.setSubTitle(data.getSubTitle());
             restaurantDTO.setRating(caculatorRating(ratingRestaurantRepository.findAll(), data.getId()));
@@ -100,7 +102,7 @@ public class RestaurantService implements IRestaurantService {
             restaurantDTO.setFreeShip(data.isFreeship());
 
             for (var item:menuRestaurantList) {
-                if (item.getCategory().getId() == data.getId()) {
+                if (item.getRestaurant().getId() == data.getId()) {
                     CategoryDTO categoryDTO = new CategoryDTO();
                     categoryDTO.setName_cate(item.getCategory().getNameCate());
 
