@@ -53,4 +53,11 @@ public class RestaurantController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
+
+    @GetMapping("/detail")
+    public ResponseEntity<?> getDetailRetaurant(@RequestParam int id){
+        ResponseData responseData = new ResponseData();
+        responseData.setData(restaurantService.getDetailRestaurant(id));
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
 }

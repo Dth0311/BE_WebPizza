@@ -18,4 +18,5 @@ public interface IRestaurantService {
     );
 
     List<RestaurantDTO> getHomeRestaurant();
+    RestaurantDTO getDetailRestaurant(int id);
 }
