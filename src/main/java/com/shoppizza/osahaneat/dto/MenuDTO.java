@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuDTO {
+    private int id;
     private String title;
     private String image;
     private boolean isFreeship;
-
+    private String description;
+    private double price;
 }

@@ -31,6 +31,9 @@ public class Food {
     @Column(name = "price")
     private double price;
 
+    @Column(name = "description")
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "cate_id")
     private Category category;

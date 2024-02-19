@@ -56,7 +56,15 @@ $(document).ready(function () {
                             </li>`;
         itemMenuHtml = "";
         $.each(data.menuDTOS, function (index1, itemMenu) {
-          itemMenuHtml += `<a href="#" class="text-decoration-none text-dark col-lg-3 col-md-6 mb-4" data-toggle="modal" data-target="#myitemsModal">
+          itemMenuHtml += `<a href="#" class="btn-food text-decoration-none text-dark col-lg-3 col-md-6 mb-4"
+                                 data-toggle="modal" data-target="#myitemsModal" data-id="${
+                                   itemMenu.id
+                                 }" data-title="${itemMenu.title}" data-desc="${
+            itemMenu.description
+          }"
+                                 data-price="${itemMenu.price}" data-image="${
+            itemMenu.image
+          }">
                               <img src='${linkmenu}/files/${
             itemMenu.image
           }' class="img-fluid rounded" style="width: 400px; height: 250px;">
@@ -74,8 +82,8 @@ $(document).ready(function () {
         });
 
         menuHtml += `<div class="tab-pane fade ${
-                          index == 0 ? 'show active' : ''
-                        }" id="tab-${index}" role="tabpanel" aria-labelledby="tab-${index}-tab">
+          index == 0 ? "show active" : ""
+        }" id="tab-${index}" role="tabpanel" aria-labelledby="tab-${index}-tab">
                           <div class="row">
                             ${itemMenuHtml}
                           </div>
@@ -88,7 +96,22 @@ $(document).ready(function () {
 
       $("#c-detail").append(html);
       $("#c-detail").append(categoryItem);
-      $("#c-detail").append(`<div class="tab-content" id="myTabContent">${menuHtml}</div>`);
+      $("#c-detail").append(
+        `<div class="tab-content" id="myTabContent">${menuHtml}</div>`
+      );
     }
+  });
+
+  $("body").on("click", ".btn-food", function () {
+    var id = $(this).attr("data-id");
+    var title = $(this).attr("data-title");
+    var desc = $(this).attr("data-desc");
+    var price = $(this).attr("data-price");
+    var image = $(this).attr("data-image");
+
+    $("#titleFoodModel").html(title);
+    $("#descFoodModel").html(desc);
+    $("#priceFoodModel").html(`Add ($ ${price})`);
+    $("#imgFoodModel").attr("src", linkmenu + '/files/' + image);
   });
 });

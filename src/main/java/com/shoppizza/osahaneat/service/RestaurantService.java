@@ -111,10 +111,14 @@ public class RestaurantService implements IRestaurantService {
                     for (Food food : foodList) {
                         if (food.getCategory().getId() == item.getCategory().getId()) {
                             MenuDTO menuDTO = new MenuDTO();
+                            menuDTO.setId(food.getId());
                             menuDTO.setTitle(food.getTitle());
                             menuDTO.setFreeship(food.isFreeship());
                             menuDTO.setImage(food.getImage());
+                            menuDTO.setDescription(food.getDescription());
+                            menuDTO.setPrice(food.getPrice());
                             menuDTOList.add(menuDTO);
+
                         }
                     }
                     categoryDTO.setMenuDTOS(menuDTOList);
